@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ethiopian Family Education App - Design System */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Warm cream background */
+    --background: 40 33% 98%;
+    --foreground: 215 35% 15%;
+
+    /* Cards with subtle warmth */
+    --card: 40 30% 99%;
+    --card-foreground: 215 35% 15%;
+
+    --popover: 40 30% 99%;
+    --popover-foreground: 215 35% 15%;
+
+    /* Deep Ethiopian Blue - Primary */
+    --primary: 215 55% 25%;
+    --primary-foreground: 40 30% 98%;
+
+    /* Warm Amber/Gold - Secondary */
+    --secondary: 35 75% 55%;
+    --secondary-foreground: 215 35% 12%;
+
+    /* Muted warm tones */
+    --muted: 35 20% 92%;
+    --muted-foreground: 215 15% 45%;
+
+    /* Teal accent for growth */
+    --accent: 168 55% 38%;
+    --accent-foreground: 40 30% 98%;
+
+    /* Performance states */
+    --success: 152 55% 40%;
+    --success-foreground: 40 30% 98%;
+    
+    --warning: 38 90% 50%;
+    --warning-foreground: 215 35% 12%;
+    
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 40 30% 98%;
+
+    --border: 35 25% 88%;
+    --input: 35 25% 88%;
+    --ring: 215 55% 25%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(215 55% 25%) 0%, hsl(215 45% 35%) 50%, hsl(168 55% 38%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(40 30% 99%) 0%, hsl(35 20% 96%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(35 75% 55%) 0%, hsl(40 80% 60%) 100%);
+    --gradient-success: linear-gradient(135deg, hsl(152 55% 40%) 0%, hsl(160 50% 45%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(215 35% 15% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(215 35% 15% / 0.08), 0 2px 4px -2px hsl(215 35% 15% / 0.05);
+    --shadow-lg: 0 10px 15px -3px hsl(215 35% 15% / 0.1), 0 4px 6px -4px hsl(215 35% 15% / 0.05);
+    --shadow-xl: 0 20px 25px -5px hsl(215 35% 15% / 0.12), 0 8px 10px -6px hsl(215 35% 15% / 0.05);
+    --shadow-gold: 0 8px 20px -4px hsl(35 75% 55% / 0.3);
+
+    --sidebar-background: 40 30% 97%;
+    --sidebar-foreground: 215 35% 15%;
+    --sidebar-primary: 215 55% 25%;
+    --sidebar-primary-foreground: 40 30% 98%;
+    --sidebar-accent: 35 20% 92%;
+    --sidebar-accent-foreground: 215 35% 15%;
+    --sidebar-border: 35 25% 88%;
+    --sidebar-ring: 215 55% 25%;
+  }
+
+  .dark {
+    --background: 220 30% 8%;
+    --foreground: 40 20% 95%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 220 25% 12%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 35 75% 55%;
+    --primary-foreground: 220 30% 8%;
+
+    --secondary: 215 45% 35%;
+    --secondary-foreground: 40 20% 95%;
+
+    --muted: 220 20% 18%;
+    --muted-foreground: 40 15% 65%;
+
+    --accent: 168 50% 45%;
+    --accent-foreground: 220 30% 8%;
+
+    --success: 152 55% 45%;
+    --success-foreground: 220 30% 8%;
+    
+    --warning: 38 85% 55%;
+    --warning-foreground: 220 30% 8%;
+
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 40 20% 95%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 35 75% 55%;
+
+    --sidebar-background: 220 25% 10%;
+    --sidebar-foreground: 40 20% 95%;
+    --sidebar-primary: 35 75% 55%;
+    --sidebar-primary-foreground: 220 30% 8%;
+    --sidebar-accent: 220 20% 18%;
+    --sidebar-accent-foreground: 40 20% 95%;
+    --sidebar-border: 220 20% 20%;
+    --sidebar-ring: 35 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* Safe area for mobile devices with notches/home indicators */
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .safe-area-pt {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  /* Padding for mobile bottom nav */
+  .pb-mobile-nav {
+    padding-bottom: 5rem;
+  }
+
+  @media (min-width: 768px) {
+    .pb-mobile-nav {
+      padding-bottom: 0;
+    }
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-md bg-card/80 border border-border/50;
+    box-shadow: var(--shadow-md);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-hero);
+  }
+
+  .btn-hero {
+    background-image: var(--gradient-hero);
+    @apply text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105;
+  }
+
+  .btn-gold {
+    background-image: var(--gradient-gold);
+    @apply text-secondary-foreground shadow-lg hover:shadow-xl transition-all duration-300;
+    box-shadow: var(--shadow-gold);
+  }
+
+  .card-elevated {
+    background-image: var(--gradient-card);
+    box-shadow: var(--shadow-lg);
+    @apply border border-border/30 rounded-xl;
+  }
+
+  .performance-high {
+    @apply bg-success/10 text-success border-success/30;
+  }
+
+  .performance-medium {
+    @apply bg-warning/10 text-warning border-warning/30;
+  }
+
+  .performance-low {
+    @apply bg-destructive/10 text-destructive border-destructive/30;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

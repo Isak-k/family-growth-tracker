@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1792259674158,
+      "tag": "0000_religion_and_personal_history",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1792340492555,
+      "tag": "0001_quran_study_plans",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1792432096268,
+      "tag": "0002_islamic_progress_family_isolation",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1792692598307,
+      "tag": "0003_students_manage_own_grades",
+      "breakpoints": true
+    }
+  ]
+}

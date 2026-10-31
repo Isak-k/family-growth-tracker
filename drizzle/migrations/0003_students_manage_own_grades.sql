@@ -1,0 +1,3 @@
+CREATE POLICY "Students can insert own grades" ON public.student_grades FOR INSERT TO authenticated WITH CHECK (auth.uid() = student_id);
+CREATE POLICY "Students can update own grades" ON public.student_grades FOR UPDATE TO authenticated USING (auth.uid() = student_id) WITH CHECK (auth.uid() = student_id);
+CREATE POLICY "Students can delete own grades" ON public.student_grades FOR DELETE TO authenticated USING (auth.uid() = student_id);
